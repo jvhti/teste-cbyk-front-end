@@ -1,6 +1,6 @@
 import './App.css';
 import React, {useState} from "react";
-import {MapPreviewer} from "./containers/MapPreviewer";
+import MapPreviewer from "./containers/MapPreviewer";
 import {MapControl} from "./components/MapControl";
 
 function App() {
@@ -8,6 +8,24 @@ function App() {
   const [mapHeight, setMapHeight] = useState(10);
   const [mapAirportsCount, setMapAirportsCount] = useState(3);
   const [mapCloudsCount, setMapCloudsCount] = useState(4);
+  const [currentDay, setCurrentDay] = useState(0);
+
+  const [loading, setLoading] = useState(false);
+
+  const [maps, setMaps] = useState(null);
+
+  const result = !!maps ? (
+      <React.Fragment>
+        <MapPreviewer curMap={maps[currentDay]}/>
+
+        Dia Atual: {currentDay}
+        <MapControl type="range" value={currentDay} min="0" max="1"
+                    setValue={setCurrentDay}>Dias</MapControl>
+
+        <h4>Dias até primeiro aeroporto ficar coberto: 4</h4>
+        <h4>Dias até todos os aeroportos ficarem cobertos: 7</h4>
+      </React.Fragment>
+  ) : null;
 
   return (
       <main>
@@ -22,10 +40,7 @@ function App() {
         <br/>
         <button>Simular</button>
 
-        <MapPreviewer/>
-
-        <h4>Dias até primeiro aeroporto ficar coberto: 4</h4>
-        <h4>Dias até todos os aeroportos ficarem cobertos: 7</h4>
+        {result}
       </main>
   );
 }

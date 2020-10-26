@@ -1,135 +1,20 @@
 import classes from "../scss/MapPreviewer.module.scss";
-import React, {useState} from "react";
-import {MapControl} from "../components/MapControl";
+import React from "react";
 
-export function MapPreviewer() {
-  const [currentDay, setCurrentDay] = useState(0);
+const MapPreviewer = React.memo(({curMap}) => {
+  const rows = curMap.map((row, index) =>
+      <tr key={index}>
+        {row.reduce((ac, cur, i) => {
+          ac.push(<td key={i + (index * 1000)}>{cur}</td>);
+          return ac;
+        }, [])}
+      </tr>);
 
-  return <React.Fragment>
-    <table className={classes.MapPreview}>
-      <tr>
-        <td>.</td>
-        <td>*</td>
-        <td>*</td>
-        <td>*</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>A</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-      <tr>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-        <td>.</td>
-      </tr>
-    </table>
+  return <table className={classes.MapPreview}>
+    <tbody>
+    {rows}
+    </tbody>
+  </table>;
+});
 
-    Dia Atual: {currentDay} <MapControl type="range" value={currentDay} min="0" max="7"
-                                        setValue={setCurrentDay}>Dias</MapControl>
-  </React.Fragment>;
-}
+export default MapPreviewer;
