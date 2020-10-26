@@ -1,0 +1,135 @@
+import classes from "../scss/MapPreviewer.module.scss";
+import React, {useState} from "react";
+import {MapControl} from "../components/MapControl";
+
+export function MapPreviewer() {
+  const [currentDay, setCurrentDay] = useState(0);
+
+  return <React.Fragment>
+    <table className={classes.MapPreview}>
+      <tr>
+        <td>.</td>
+        <td>*</td>
+        <td>*</td>
+        <td>*</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>A</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+      <tr>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+        <td>.</td>
+      </tr>
+    </table>
+
+    Dia Atual: {currentDay} <MapControl type="range" value={currentDay} min="0" max="7"
+                                        setValue={setCurrentDay}>Dias</MapControl>
+  </React.Fragment>;
+}

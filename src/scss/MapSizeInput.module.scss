@@ -1,0 +1,12 @@
+.Input {
+  width: 45px;
+  text-align: right;
+
+  &[type="range"] {
+    width: auto;
+  }
+}
+
+.Label {
+  margin: 5px;
+}

@@ -1,0 +1,11 @@
+.MapPreview {
+  border: 1px solid black;
+  margin: 15px;
+  padding: 5px 15px;
+
+  & > tr {
+    & > td {
+      padding: 10px;
+    }
+  }
+}
