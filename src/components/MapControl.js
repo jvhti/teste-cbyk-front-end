@@ -1,10 +1,12 @@
-import classes from "../scss/MapSizeInput.module.scss";
+import classes from "../scss/Input.module.scss";
 import React from "react";
 
-export function MapControl(props) {
+const MapControl = (props) => {
   return <label className={classes.Label}>
-    {props.children}: <input className={classes.Input} onChange={(ev) => props.setValue(ev.target.value)}
+    {props.children}: <input className={classes.Input} onChange={(ev) => props.setValue(+ev.target.value)}
                              type={props.type || "number"}
                              value={props.value} min={props.min} max={props.max}/>
   </label>;
 }
+
+export default React.memo(MapControl);

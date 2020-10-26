@@ -1,11 +1,12 @@
 .MapPreview {
   border: 1px solid black;
-  margin: 15px;
+  margin: 15px auto;
   padding: 5px 15px;
 
   & > tbody > tr {
     & > td {
       padding: 10px;
+      font-family: monospace;
     }
   }
 }

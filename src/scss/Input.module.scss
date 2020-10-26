@@ -1,6 +1,7 @@
 .Input {
   width: 45px;
   text-align: right;
+  margin-bottom: 10px;
 
   &[type="range"] {
     width: auto;
@@ -9,4 +10,5 @@
 
 .Label {
   margin: 5px;
+  margin-left: 0;
 }
